@@ -7,365 +7,411 @@
     <title>My Website Manager</title>
   </head>
   <body>
-    <header class="header">
-      <svg
-        class="w-6 h-6 text-gray-800 dark:text-white"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        width="26"
-        height="26"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="m8 9 3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
-        />
-      </svg>
+    <!-- Password Screen -->
+    <section class="login-screen" id="loginScreen" aria-labelledby="loginTitle">
+      <div class="login-card">
+        <div class="login-logo" aria-hidden="true">WM</div>
+        <p class="login-kicker">PRIVATE ACCESS</p>
+        <h1 id="loginTitle">My Website Manager</h1>
+        <p class="login-description">
+          All your websites, organized in one place.
+        </p>
 
-      <h1 class="header__title" id="pageTitle">SanchitBuilds.com</h1>
+        <form id="loginForm" class="login-form">
+          <label for="sitePassword">Password</label>
+          <input
+            id="sitePassword"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+            autofocus
+          />
+          <p
+            class="login-error"
+            id="loginError"
+            role="alert"
+            aria-live="polite"
+          ></p>
+          <button type="submit" class="login-button">Unlock website</button>
+        </form>
 
-      <div class="header__search">
-        <img
-          src="   https://cdn-icons-png.flaticon.com/512/11693/11693737.png "
+        <p class="login-footnote">Private access · My Website Manager</p>
+      </div>
+    </section>
+
+    <!-- Existing Website Content -->
+    <div id="protectedContent" hidden>
+      <header class="header">
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
           width="26"
           height="26"
-          alt=""
-          title=""
-          class="img-small"
-        />
-      </div>
-    </header>
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m8 9 3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
+          />
+        </svg>
 
-    <section class="hero">
-      <h1>My Website Manager</h1>
-      <span id="element"></span>
-    </section>
+        <h1 class="header__title" id="pageTitle">SanchitBuilds.com</h1>
 
-    <section class="about" id="about">
-      <h2>About Me 🗺️</h2>
-
-      <p>
-        Hi, I'm Sanchit. I build and manage websites and web-based projects
-        using HTML, CSS and JavaScript.
-      </p>
-
-      <p>
-        This Website Manager is my personal dashboard to keep all my projects
-        organized in one place.
-      </p>
-    </section>
-    <div class="web">
-      <h2>My Work 💻</h2>
-
-      <p>
-        Explore my collection of websites and web-based projects that I've built
-        and managed.
-      </p>
-    </div>
-    <section class="websites">
-      <div class="website-card">
-        <h2>MyQRScan :</h2>
-
-        <p>My personal QR scanning website.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
+        <div class="header__search">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/11693/11693737.png"
+            width="26"
+            height="26"
+            alt=""
+            class="img-small"
+          />
         </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://myqrscan.netlify.app/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/My-QR-Scan" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
+      </header>
 
-      <div class="website-card">
-        <h2>Sanchit's Best :</h2>
+      <section class="hero">
+        <h1>My Website Manager</h1>
+        <span id="element"></span>
+      </section>
 
-        <p>Experience the bests of Sanchit.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://sanchitsbest.netlify.app/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/Sanchits-Best" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="website-card">
-        <h2>My Privacy :</h2>
-
-        <p>Private Communication Platform.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://my-privacy-backend.onrender.com/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/my-privacy" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <div class="website-card">
-        <h2>Expense Tracker :</h2>
-
-        <p>Track your expenses with ease.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://fancy-meadow-2d6c.phapalesanchu12.workers.dev/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/Expences-Tracker" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="website-card">
-        <h2>Website Manager :</h2>
-
-        <p>Manage your websites.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://my-website-manager.phapalesanchu12.workers.dev/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/my-website-manager" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="website-card">
-        <h2>My Vault :</h2>
-
-        <p>Secure your sensitive information.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://myvault-y4ws.onrender.com/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/MyVault" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <div class="website-card">
-        <h2>Ganapti Website :</h2>
-
-        <p>Ganapti Bappa Morya.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://ganapti.netlify.app/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/Ganapti-Website_2026" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="website-card">
-        <h2> My Portfolio :</h2>
-
-        <p>Check out my portfolio!</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="https://sanchuprotfolio.netlify.app/" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/Protfolio" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="website-card">
-        <h2>Pending Project :</h2>
-
-        <p>Project details coming soon.</p>
-
-        <div class="languages">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-        <div class="card-buttons">
-          <div class="card-buttons1">
-            <a href="" target="_blank">
-              Open Website
-            </a>
-          </div>
-          <div class="card-buttons2">
-            <a href="https://github.com/SanchitPhapale/" target="_blank"> GitHub </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="contact-header">
-        <div class="contact-logo">🌐</div>
-
-        <h2>Let's Connect</h2>
-
+      <section class="about" id="about">
+        <h2>🗺️ About Me</h2>
         <p>
-          Have a project, idea, or just want to get in touch? Feel free to
-          contact me.
+          Hi, I'm Sanchit. I build and manage websites and web-based projects
+          using HTML, CSS and JavaScript.
+        </p>
+        <p>
+          This Website Manager is my personal dashboard to keep all my projects
+          organized in one place.
+        </p>
+      </section>
+
+      <div class="web">
+        <h2> 💻 My Work</h2>
+        <p>
+          Explore my collection of websites and web-based projects that I've
+          built and managed.
         </p>
       </div>
 
-      <div class="contact-info">
-        <div class="contact-item">
-          <span class="contact-icon">👤</span>
-
-          <div>
-            <h3>Name</h3>
-            <p>Sanchit Phapale</p>
+      <section class="websites">
+        <div class="website-card">
+          <h2>MyQRScan :</h2>
+          <p>My personal QR scanning website.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://myqrscan.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/My-QR-Scan"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
           </div>
         </div>
 
-        <div class="contact-item">
-          <span class="contact-icon">📱</span>
-
-          <div>
-            <h3>Mobile</h3>
-            <p>+91 7300092727</p>
+        <div class="website-card">
+          <h2>Sanchit's Best :</h2>
+          <p>Experience the bests of Sanchit.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://sanchitsbest.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/Sanchits-Best"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
           </div>
         </div>
 
-        <div class="contact-item">
-          <span class="contact-icon">✉️</span>
-
-          <div>
-            <h3>Email</h3>
-            <p>sanchoolol12@gmail.com</p>
+        <div class="website-card">
+          <h2>My Privacy :</h2>
+          <p>Private Communication Platform.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://my-privacy-backend.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/my-privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
           </div>
         </div>
 
-        <div class="contact-item">
-          <span class="contact-icon">🎓</span>
-
-          <div>
-            <h3>College</h3>
-            <p>Government Polytechnic</p>
+        <div class="website-card">
+          <h2>Expense Tracker :</h2>
+          <p>Track your expenses with ease.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://fancy-meadow-2d6c.phapalesanchu12.workers.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/Expences-Tracker"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
           </div>
         </div>
 
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-
-          <div>
-            <h3>Location</h3>
-
-            <p>Savedi, Ahilyanagar</p>
+        <div class="website-card">
+          <h2>Website Manager :</h2>
+          <p>Manage your websites.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://my-website-manager.phapalesanchu12.workers.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/my-website-manager"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="contact-buttons">
-        <a
-          href="https://wa.me/917300092727"
-          target="_blank"
-          class="contact-btn whatsapp"
-        >
-          WhatsApp
-        </a>
+        <div class="website-card">
+          <h2>My Vault :</h2>
+          <p>Secure your sensitive information.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://myvault-y4ws.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/MyVault"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
 
-        <a href="tel:+917300092727" class="contact-btn phone"> Call Me </a>
+        <div class="website-card">
+          <h2>Ganapti Website :</h2>
+          <p>Ganapti Bappa Morya.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://ganapti.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/Ganapti-Website_2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
 
-        <a
-          href="https://github.com/SanchitPhapale"
-          target="_blank"
-          class="contact-btn github"
-        >
-          GitHub
-        </a>
+        <div class="website-card">
+          <h2>My Portfolio :</h2>
+          <p>Check out my portfolio!</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a
+                href="https://sanchuprotfolio.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/Protfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
 
-        <a
-          href="https://www.linkedin.com/in/sanchit-phapale-268690394?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-          target="_blank"
-          class="contact-btn linkedin"
-        >
-          LinkedIn
-        </a>
-      </div>
-    </section>
+        <div class="website-card">
+          <h2>Pending Project :</h2>
+          <p>Project details coming soon.</p>
+          <div class="languages">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="card-buttons">
+            <div class="card-buttons1">
+              <a href="" target="_blank" rel="noopener noreferrer"
+                >Open Website</a
+              >
+            </div>
+            <div class="card-buttons2">
+              <a
+                href="https://github.com/SanchitPhapale/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <footer class="footer">
-      © 2026 SanchitBuilds — Built, managed & maintained by SanchitBuilds.
-    </footer>
+      <section class="contact" id="contact">
+        <div class="contact-header">
+          <div class="contact-logo">🌐</div>
+          <h2>Let's Connect</h2>
+          <p>
+            Have a project, idea, or just want to get in touch? Feel free to
+            contact me.
+          </p>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">👤</span>
+            <div>
+              <h3>Name</h3>
+              <p>Sanchit Phapale</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <h3>Mobile</h3>
+              <p>+91 7300092727</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <h3>Email</h3>
+              <p>sanchoolol12@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🎓</span>
+            <div>
+              <h3>College</h3>
+              <p>Government Polytechnic</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h3>Location</h3>
+              <p>Savedi, Ahilyanagar</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-buttons">
+          <a
+            href="https://wa.me/917300092727"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn whatsapp"
+            >WhatsApp</a
+          >
+          <a href="tel:+917300092727" class="contact-btn phone">Call Me</a>
+          <a
+            href="https://github.com/SanchitPhapale"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn github"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/sanchit-phapale-268690394?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn linkedin"
+            >LinkedIn</a
+          >
+        </div>
+      </section>
+
+      <footer class="footer">
+        © 2026 SanchitBuilds — Built, managed & maintained by SanchitBuilds.
+      </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0"></script>
-    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
-
     <script src="/js/script.js"></script>
   </body>
 </html>

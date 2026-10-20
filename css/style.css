@@ -1,1128 +1,571 @@
-/* =========================================================
-   GLOBAL SETTINGS
-========================================================= */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* My Website Manager — clean, simple, responsive theme */
 
 :root {
-    --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-
-    --text: #202020;
-    --background: #e2e2e2;
-    --surface: #cdcdcd;
-    --surface-dark: #474747;
-    --border: #333;
-    --blue: #0095ff;
-    --transition: 0.25s ease;
+  color-scheme: light;
+  --page: #f6f7f9;
+  --surface: #ffffff;
+  --text: #202733;
+  --muted: #687386;
+  --border: #e2e6ec;
+  --accent: #315fba;
+  --accent-hover: #254b96;
+  --soft: #edf2fb;
+  --shadow: 0 8px 28px rgba(26, 39, 60, 0.07);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font);
-
-    background: linear-gradient(to right, #646464, #e2e2e2);
-
-    color: var(--text);
-
-    font-size: 14px;
-    line-height: 1.5;
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    animation: pageFade 0.6s ease;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
 }
 
+body,
+button,
+input {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
 
-/* =========================================================
-   HEADER
-========================================================= */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* PASSWORD SCREEN */
+
+.login-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f6f7f9;
+}
+
+.login-card {
+  width: min(100%, 390px);
+  padding: 36px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.login-logo {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.login-kicker {
+  margin: 0 0 7px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.login-card h1 {
+  margin: 0;
+  font-size: clamp(23px, 5vw, 28px);
+  line-height: 1.25;
+  text-align: center;
+  letter-spacing: -0.7px;
+}
+
+.login-description {
+  margin: 10px 0 27px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.login-form {
+  display: grid;
+  gap: 9px;
+}
+
+.login-form label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.login-form input {
+  width: 100%;
+  min-height: 47px;
+  padding: 11px 13px;
+  border: 1px solid #d6dce5;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: var(--text);
+}
+
+.login-form input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(49, 95, 186, 0.12);
+}
+
+.login-error {
+  min-height: 18px;
+  margin: 0;
+  color: #b42318;
+  font-size: 12px;
+}
+
+.login-button {
+  min-height: 47px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: var(--accent-hover);
+}
+
+.login-footnote {
+  margin: 22px 0 0;
+  color: #8791a0;
+  text-align: center;
+  font-size: 11px;
+}
+
+/* EXISTING WEBSITE CONTENT */
+
+#protectedContent {
+  min-height: 100vh;
+}
+
+/* HEADER */
 
 .header {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 10px 4%;
-
-    background: rgba(211, 211, 211, 0.92);
-
-    font-weight: 500;
-
-    border-bottom: 1px solid #969696;
-    border-radius: 0 0 18px 18px;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 1000;
-
-    backdrop-filter: blur(12px);
-
-    animation: headerDown 0.6s ease;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px clamp(18px, 5vw, 64px);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
 }
 
-.header:hover {
-    cursor: pointer;
-}
-
-.header__menu {
-    display: none;
+.header svg {
+  flex: 0 0 auto;
+  color: var(--accent);
 }
 
 .header__title {
-    font-size: 17px;
-    font-weight: 600;
-
-    margin: 0;
-
-    white-space: nowrap;
-
-    color: #333;
-
-    transition: var(--transition);
-}
-
-.header__title:hover {
-    color: #ff5100;
+  margin: 0 auto 0 0;
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
 }
 
 .header__search {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 5px 10px;
-
-    border-radius: 7px;
-
-    transition: var(--transition);
+  display: flex;
+  align-items: center;
 }
 
-.header__search:hover {
-    background-color: #e2e2e2;
+.img-small {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero {
-    width: min(1200px, 92%);
-
-    margin: 0 auto;
-
-    text-align: center;
-
-    padding: 60px 20px 40px;
-
-    animation: heroUp 0.8s ease;
+  padding: clamp(48px, 9vw, 100px) 20px;
+  background: #edf2fb;
+  text-align: center;
 }
 
 .hero h1 {
-    font-size: clamp(32px, 4vw, 48px);
-
-    line-height: 1.15;
-
-    margin-bottom: 12px;
-
-    font-weight: 700;
-}
-
-.hero p {
-    padding-top: 4px;
-
-    font-size: clamp(16px, 1.7vw, 20px);
-
-    color: #3b3b3b;
-
-    line-height: 1.5;
+  margin: 0 0 10px;
+  font-size: clamp(30px, 5vw, 48px);
+  letter-spacing: -1.3px;
 }
 
 #element {
-    color: #565656;
-
-    font-weight: 600;
-
-    font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--accent);
+  font-size: clamp(15px, 2.4vw, 19px);
+  font-weight: 600;
 }
 
+/* ABOUT AND MY WORK */
 
-/* =========================================================
-   ABOUT SECTION
-========================================================= */
-
-.about {
-    width: min(1100px, 90%);
-
-    margin: 40px auto;
-
-    padding: 28px 30px;
-
-    text-align: center;
-
-    background: linear-gradient(
-        to right,
-        rgba(226, 226, 226, 0.9),
-        rgba(100, 100, 100, 0.9)
-    );
-
-    border-radius: 25px;
-
-    border: 1px solid #333;
-
-    animation: sectionUp 0.8s ease;
+.about,
+.web {
+  width: min(100% - 36px, 980px);
+  margin: 0 auto;
+  padding: 42px 120px 10px;
+  text-align: center;
+  justify-content: center;
+align-items: center;
 }
 
-.about h2 {
-    font-size: clamp(24px, 2.8vw, 30px);
-
-    margin-bottom: 14px;
+.about h2,
+.web h2 {
+  margin: 0 0 12px;
+  font-size: 25px;
+  letter-spacing: -0.5px;
+   text-align: center;
+  justify-content: center;
+align-items: center;
 }
 
-.about p {
-    max-width: 850px;
-
-    margin: 0 auto 8px;
-
-    color: #373737;
-
-    font-size: 15px;
-
-    line-height: 1.6;
+.about p,
+.web p {
+  max-width: 760px;
+  margin: 8px 0;
+  color: var(--muted);
+   text-align: center;
+  justify-content: center;
+align-items: center;
+  font-size: 14px;
 }
-
-
-/* =========================================================
-   WEBSITE SECTION INTRO
-========================================================= */
 
 .web {
-    width: min(750px, 90%);
-
-    margin: 50px auto 20px;
-
-    padding: 22px 20px;
-
-    text-align: center;
-
-    background: linear-gradient(
-        to right,
-        rgba(226, 226, 226, 0.9),
-        rgba(100, 100, 100, 0.9)
-    );
-
-    border-radius: 25px;
-
-    border: 1px solid #333;
-
-    animation: sectionUp 0.8s ease;
+  padding-top: 38px;
+  
 }
 
-.web h2 {
-    font-size: clamp(24px, 2.8vw, 30px);
-
-    margin-bottom: 10px;
-}
-
-.web p {
-    color: #373737;
-
-    font-size: 15px;
-
-    line-height: 1.5;
-}
-
-
-/* =========================================================
-   WEBSITE GRID
-========================================================= */
+/* WEBSITE CARDS */
 
 .websites {
-    width: min(1350px, 92%);
-
-    margin: 0 auto;
-
-    padding: 25px 0 45px;
-
-    display: grid;
-
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(260px, 1fr)
-    );
-
-    gap: 20px;
-
-    align-items: stretch;
+  width: min(100% - 36px, 1100px);
+  margin: 22px auto 60px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-
-/* =========================================================
-   WEBSITE CARD
-========================================================= */
-
 .website-card {
-    width: 100%;
-
-    min-width: 0;
-
-    padding: 20px;
-
-    border: 1px solid #333;
-
-    border-radius: 14px;
-
-    background: rgba(205, 205, 205, 0.95);
-
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
-
-    display: flex;
-    flex-direction: column;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-
-    animation: cardAppear 0.65s ease both;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--surface);
+  box-shadow: 0 3px 12px rgba(26, 39, 60, 0.025);
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 }
 
 .website-card:hover {
-    transform: translateY(-5px);
-
-    border-color: var(--blue);
-
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.17);
+  transform: translateY(-2px);
+  border-color: #c7d3e8;
+  box-shadow: var(--shadow);
 }
 
 .website-card h2 {
-    font-size: 20px;
-
-    margin-bottom: 7px;
+  margin: 0 0 8px;
+  font-size: 19px;
+  letter-spacing: -0.3px;
 }
 
 .website-card p {
-    color: #505050;
-
-    font-size: 14px;
-
-    margin-bottom: 15px;
-
-    line-height: 1.5;
+  flex: 1;
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
-
-/* =========================================================
-   LANGUAGE TAGS
-========================================================= */
+/* TECHNOLOGY LABELS */
 
 .languages {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 6px;
-
-    margin-bottom: 17px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
 }
 
 .languages span {
-    padding: 4px 8px;
-
-    border: 1px solid #333;
-
-    border-radius: 5px;
-
-    background: #222;
-
-    color: #ccc;
-
-    font-size: 11px;
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #f8f9fb;
+  color: #536176;
+  font-size: 11px;
 }
 
-.languages span:hover {
-    transform: translateY(-2px);
-
-    border-color: var(--blue);
-
-    color: white;
-}
-
-
-/* =========================================================
-   CARD BUTTONS
-========================================================= */
+/* WEBSITE BUTTONS */
 
 .card-buttons {
-    display: flex;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-
-    margin-top: auto;
-}
-
-.card-buttons1,
-.card-buttons2 {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .card-buttons1 a,
 .card-buttons2 a {
-    padding: 8px 13px;
-
-    border-radius: 7px;
-
-    text-decoration: none;
-
-    background: white;
-
-    color: black;
-
-    font-size: 13px;
-    font-weight: 500;
-
-    border: 1px solid transparent;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+  display: inline-flex;
+  min-height: 37px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 650;
 }
 
-.card-buttons1 a:hover,
+.card-buttons1 a {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.card-buttons1 a:hover {
+  background: var(--accent-hover);
+}
+
+.card-buttons2 a {
+  background: #fff;
+  color: var(--text);
+}
+
 .card-buttons2 a:hover {
-    transform: translateY(-2px);
-
-    border-color: var(--blue);
-
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.14);
+  background: var(--soft);
 }
 
-
-/* =========================================================
-   CONTACT
-========================================================= */
+/* CONTACT SECTION */
 
 .contact {
-    width: min(1100px, 90%);
-
-    margin: 50px auto 35px;
-
-    padding: 30px;
-
-    text-align: center;
-
-    animation: sectionUp 0.8s ease;
+  padding: 56px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .contact-header {
-    margin-bottom: 28px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  text-align: center;
 }
 
 .contact-logo {
-    width: 55px;
-    height: 55px;
-
-    margin: 0 auto 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #333;
-
-    border-radius: 50%;
-
-    font-size: 21px;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.contact-logo:hover {
-    transform: scale(1.06) rotate(4deg);
-
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+  margin-bottom: 8px;
+  font-size: 28px;
 }
 
 .contact-header h2 {
-    font-size: clamp(25px, 3vw, 32px);
-
-    margin-bottom: 8px;
+  margin: 0 0 10px;
+  font-size: 29px;
+  letter-spacing: -0.6px;
 }
 
 .contact-header p {
-    max-width: 650px;
-
-    margin: auto;
-
-    color: #373636;
-
-    font-size: 14px;
-
-    line-height: 1.5;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
-
-/* =========================================================
-   CONTACT INFORMATION
-========================================================= */
-
 .contact-info {
-    width: 100%;
-
-    margin: 0 auto 25px;
-
-    display: grid;
-
-    grid-template-columns: repeat(
-        2,
-        minmax(0, 1fr)
-    );
-
-    gap: 12px;
+  width: min(100%, 850px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .contact-item {
-    width: 100%;
-
-    min-width: 0;
-
-    min-height: 60px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 12px;
-
-    background: #474747;
-
-    border: 1px solid #2d2d2d;
-
-    border-radius: 10px;
-
-    text-align: left;
-
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.contact-item:hover {
-    transform: translateY(-3px);
-
-    border-color: var(--blue);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
 .contact-icon {
-    flex-shrink: 0;
-
-    width: 35px;
-    height: 35px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 17px;
-
-    background: #222;
-
-    border-radius: 8px;
+  font-size: 20px;
 }
 
 .contact-item h3 {
-    margin: 0 0 2px;
-
-    font-size: 14px;
-
-    color: white;
+  margin: 0 0 3px;
+  font-size: 13px;
 }
 
 .contact-item p {
-    margin: 0;
-
-    color: #ccc;
-
-    font-size: 13px;
-
-    overflow-wrap: anywhere;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
 }
 
-
-/* =========================================================
-   CONTACT BUTTONS
-========================================================= */
+/* CONTACT BUTTONS */
 
 .contact-buttons {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 25px;
 }
 
 .contact-btn {
-    display: inline-block;
-
-    padding: 9px 16px;
-
-    border-radius: 7px;
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    border: 1px solid #333;
-
-    color: white;
-
-    background: #181818;
-
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 650;
 }
 
 .contact-btn:hover {
-    transform: translateY(-3px);
-
-    background: #222;
-
-    border-color: var(--blue);
-
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.16);
+  background: var(--soft);
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .footer {
-    width: 100%;
-
-    text-align: center;
-
-    padding: 13px 15px;
-
-    background-color: rgba(170, 170, 170, 0.9);
-
-    color: #323232;
-
-    font-weight: 400;
-
-    font-size: 12px;
-
-    border-top: 1px solid #2a2a2a;
+  padding: 22px 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
 }
 
-
-/* =========================================================
-   OPENING ANIMATIONS
-========================================================= */
-
-@keyframes pageFade {
-
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-@keyframes headerDown {
-
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-@keyframes heroUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-@keyframes sectionUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-@keyframes cardAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-
-/* =========================================================
-   CARD DELAYS
-========================================================= */
-
-.website-card:nth-child(1) {
-    animation-delay: 0.05s;
-}
-
-.website-card:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.website-card:nth-child(3) {
-    animation-delay: 0.15s;
-}
-
-.website-card:nth-child(4) {
-    animation-delay: 0.2s;
-}
-
-.website-card:nth-child(5) {
-    animation-delay: 0.25s;
-}
-
-.website-card:nth-child(6) {
-    animation-delay: 0.3s;
-}
-
-
-/* =========================================================
-   TABLET — 900px AND BELOW
-========================================================= */
+/* TABLETS */
 
 @media (max-width: 900px) {
-
-    .header {
-        padding: 10px 20px;
-    }
-
-
-    .hero {
-        padding: 50px 15px 35px;
-    }
-
-
-    .websites {
-        width: 94%;
-
-        grid-template-columns: repeat(
-            2,
-            minmax(0, 1fr)
-        );
-
-        gap: 16px;
-    }
-
-
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
+  .websites {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-
-/* =========================================================
-   MOBILE — 600px AND BELOW
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .header {
-        padding: 9px 14px;
-
-        border-radius: 0 0 14px 14px;
-    }
-
-
-    .header__title {
-        font-size: 15px;
-    }
-
-
-    .hero {
-        width: 100%;
-
-        padding: 42px 14px 28px;
-    }
-
-
-    .hero h1 {
-        font-size: clamp(27px, 8vw, 34px);
-
-        margin-bottom: 10px;
-    }
-
-
-    .hero p {
-        font-size: 15px;
-    }
-
-
-    #element {
-        font-size: 15px;
-    }
-
-
-    .about {
-        width: calc(100% - 24px);
-
-        margin: 28px auto;
-
-        padding: 22px 16px;
-
-        border-radius: 20px;
-    }
-
-
-    .about h2 {
-        font-size: 23px;
-
-        margin-bottom: 10px;
-    }
-
-
-    .about p {
-        font-size: 14px;
-
-        line-height: 1.5;
-    }
-
-
-    .web {
-        width: calc(100% - 24px);
-
-        margin: 30px auto 15px;
-
-        padding: 18px 15px;
-
-        border-radius: 20px;
-    }
-
-
-    .web h2 {
-        font-size: 23px;
-
-        margin-bottom: 8px;
-    }
-
-
-    .web p {
-        font-size: 14px;
-    }
-
-
-    /* One card per row */
-
-    .websites {
-        width: calc(100% - 24px);
-
-        grid-template-columns: 1fr;
-
-        gap: 14px;
-
-        padding: 18px 0 30px;
-    }
-
-
-    .website-card {
-        padding: 17px;
-
-        border-radius: 13px;
-    }
-
-
-    .website-card h2 {
-        font-size: 18px;
-    }
-
-
-    .website-card p {
-        font-size: 13px;
-
-        margin-bottom: 13px;
-    }
-
-
-    .languages {
-        margin-bottom: 15px;
-    }
-
-
-    .languages span {
-        font-size: 10px;
-
-        padding: 4px 7px;
-    }
-
-
-    /*
-       Keep buttons side-by-side when there is
-       enough space instead of making them huge.
-    */
-
-    .card-buttons {
-        flex-direction: row;
-    }
-
-
-    .card-buttons1 a,
-    .card-buttons2 a {
-        font-size: 12px;
-
-        padding: 8px 11px;
-    }
-
-
-    .contact {
-        width: calc(100% - 24px);
-
-        margin: 35px auto 25px;
-
-        padding: 22px 10px;
-    }
-
-
-    .contact-logo {
-        width: 48px;
-        height: 48px;
-
-        font-size: 18px;
-    }
-
-
-    .contact-header {
-        margin-bottom: 22px;
-    }
-
-
-    .contact-header h2 {
-        font-size: 25px;
-    }
-
-
-    .contact-header p {
-        font-size: 13px;
-    }
-
-
-    .contact-info {
-        grid-template-columns: 1fr;
-
-        gap: 8px;
-    }
-
-
-    .contact-item {
-        min-height: 55px;
-
-        padding: 10px;
-    }
-
-
-    .contact-icon {
-        width: 32px;
-        height: 32px;
-
-        font-size: 15px;
-    }
-
-
-    .contact-item h3 {
-        font-size: 13px;
-    }
-
-
-    .contact-item p {
-        font-size: 12px;
-    }
-
-
-    .contact-btn {
-        font-size: 12px;
-
-        padding: 9px 13px;
-    }
-
-
-    .footer {
-        padding: 11px 8px;
-
-        font-size: 11px;
-    }
+/* MOBILE */
+
+@media (max-width: 560px) {
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .header {
+    min-height: 62px;
+    padding-inline: 17px;
+  }
+
+  .header__title {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 52px 16px;
+  }
+
+  .about,
+  .web{
+ text-align: center;
+ justify-content: end;
+   
+     max-width: 90%;
+  margin: 16px auto;
+  padding: 15px 16px;
+  
+align-items: center;
 }
+  }
+  
+
+  .websites {
+    width: 100% ;
+  }
+
+  .about {
+    padding-top: 32px;
+  }
+
+  .about h2,
+  .web h2 {
+    font-size: 22px;
+  }
+
+  .websites {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    margin-bottom: 42px;
+  }
+
+  .website-card {
+    padding: 19px;
+  }
+
+  .contact {
+    padding: 42px 16px;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
 
 
-/* =========================================================
-   SMALL MOBILE — 380px AND BELOW
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .header {
-        padding: 8px 10px;
-    }
-
-
-    .header__title {
-        font-size: 13px;
-    }
-
-
-    .hero {
-        padding-top: 35px;
-    }
-
-
-    .hero h1 {
-        font-size: 26px;
-    }
-
-
-    .hero p,
-    #element {
-        font-size: 14px;
-    }
-
-
-    .website-card {
-        padding: 15px;
-    }
-
-
-    .card-buttons {
-        gap: 6px;
-    }
-
-
-    .card-buttons1 a,
-    .card-buttons2 a {
-        padding: 7px 9px;
-
-        font-size: 11px;
-    }
-
-
-    .contact {
-        padding: 18px 8px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE — 340px AND BELOW
-========================================================= */
-
-@media (max-width: 340px) {
-
-    .hero h1 {
-        font-size: 23px;
-    }
-
-
-    .hero p,
-    #element {
-        font-size: 13px;
-    }
-
-
-    .about h2,
-    .web h2 {
-        font-size: 21px;
-    }
-
-
-    .website-card {
-        padding: 13px;
-    }
-
-
-    .contact-header h2 {
-        font-size: 23px;
-    }
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration: 0.01ms ;
-
-        animation-iteration-count: 1 ;
-
-        transition-duration: 0.01ms ;
-
-        scroll-behavior: auto ;
-    }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
 
+
+/* DESKTOP — WEBSITE CARDS GRID (3 × 3) */
+
+@media (min-width: 901px) {
+  .websites {
+    width: min(100% - 48px, 1200px);
+    margin: 22px auto 60px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .website-card {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+  }
+}
